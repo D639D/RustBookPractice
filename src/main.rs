@@ -77,6 +77,18 @@ impl Shape {
     }
 }
 
+fn title(figure: &Shape) -> &str {
+    match figure {
+        Shape::Circle(_) => "Круг",
+        Shape::Rectangle { height: _, width: _ } => "Прямоугольник",
+        Shape::Triangle(_a, _b, _c) => "Треугольник",
+    }
+}
+
+// fn largest_area() -> Option<&Shape> {
+    
+// }
+
 fn main() {
     let circle1 = Shape::Circle(5.0);
     let rectangle1 = Shape::Rectangle {
@@ -88,7 +100,12 @@ fn main() {
     println!("\n1. Square: {:?}", Shape::square(&circle1));
     println!("2. Square: {:?}", Shape::square(&rectangle1));
     println!("3. Square: {:?}\n", Shape::square(&triangle1));
+    
     println!("1. Perimeter: {:?}", Shape::perimeter(&triangle1));
     println!("2. Perimeter: {:?}", Shape::perimeter(&triangle1));
-    println!("3. Perimeter: {:?}", Shape::perimeter(&triangle1));
+    println!("3. Perimeter: {:?}\n", Shape::perimeter(&triangle1));
+
+    println!("1. Titel: {:?}", title(&Shape::Circle(10.0)));
+    println!("2. Titel: {:?}", title(&Shape::Rectangle { width: 10.0, height: 10.0 }));
+    println!("3. Titel: {:?}", title(&Shape::Triangle(2.0, 4.0, 2.0)));
 }
